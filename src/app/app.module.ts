@@ -1,11 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 
 // Personalize modules
 import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './users/users.module';
+
+// Routes
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -13,6 +18,8 @@ import { UsersModule } from './users/users.module';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
     SharedModule,
     UsersModule
   ],
