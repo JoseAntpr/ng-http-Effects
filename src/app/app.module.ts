@@ -3,12 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+// Personalize modules
+import { SharedModule } from './shared/shared.module';
+import { UsersModule } from './users/users.module';
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    SharedModule,
+    UsersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
