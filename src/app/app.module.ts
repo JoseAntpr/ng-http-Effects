@@ -3,6 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
 
+// NGRX
+import { StoreModule } from '@ngrx/store';
+import { appReducers } from './store/app.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+// Environment
+import { environment } from '../environments/environment';
+
 import { AppComponent } from './app.component';
 
 // Personalize modules
@@ -12,6 +20,9 @@ import { UsersModule } from './users/users.module';
 // Routes
 import { AppRoutingModule } from './app-routing.module';
 
+
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -20,6 +31,11 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    StoreModule.forRoot( appReducers ),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      logOnly: environment.production, // Restrict extension to log-only mode
+    }),
     SharedModule,
     UsersModule
   ],
