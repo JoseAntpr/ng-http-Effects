@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from './store/app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { effectsArr } from './store/effects';
 
 // Environment
 import { environment } from '../environments/environment';
@@ -20,9 +22,6 @@ import { UsersModule } from './users/users.module';
 // Routes
 import { AppRoutingModule } from './app-routing.module';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent
@@ -32,6 +31,7 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot( appReducers ),
+    EffectsModule.forRoot( effectsArr ),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
