@@ -22,7 +22,7 @@ export class UserEffects {
                             return this.userService.getUserById(action.id)
                                 .pipe(
                                     map( user => new userActions.LoadUserSuccess(user)),
-                                    catchError( error => of(new userActions.LoadUsersFailed(error)))
+                                    catchError( error => of(new userActions.LoadUserFailed(error)))
                                 );
                         })
                     );
